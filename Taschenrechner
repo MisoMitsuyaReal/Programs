@@ -1,95 +1,159 @@
 
 #include <iostream>
+#include <cmath>
 using namespace std;
 int main()
 {
-int Auswahl1, Auswahl2, Auswahl3, Auswahl4, Zahl1, Zahl2, Ergebnis_I;
-string User = "Unknown";
-float Ergebnis_F;
+	int Auswahl1, Auswahl2, Auswahl3, Auswahl4, Auswahl5, Auswahl6, Zahl1, Zahl2, Zahl3, Ergebnis_I;
+	string User = "Unknown";
+	float Ergebnis_F;
 
-while(Auswahl3 != 5){
-cout<< "Taschenrechner von <"<<User<<">"<<endl <<endl<<"Was wollen Sie tun? "<<endl<<"1. Usernamen bestimmen"<<endl<<"2. Rechenoperationen"<<endl << "3. Zahlen bestimmen"<<endl<<"4. Zahlen aufrufen" <<endl<< "5. Beenden"<<endl << "<" << User << ">: ";
-cin>> Auswahl3;
-cout << endl <<endl;
+	while(Auswahl3 != 6) {
+		cout<< "Taschenrechner von <"<<User<<">"<<endl <<endl<<"Was wollen Sie tun? "<<endl<<"1. Usernamen bestimmen"<<endl<<"2. Rechenoperationen"<<endl << "3. Zahlen bestimmen"<<endl<<"4. Zahlen aufrufen" <<endl<<"5. Trigonometrie"<<endl<< "6. Beenden"<<endl << "<" << User << ">: ";
+		cin>> Auswahl3;
+		cout << endl <<endl;
 
-switch(Auswahl3){
-    default: 
-              cout <<"Error!" <<endl;
-              return 1;
-              
-    
-    case 1:
-    cout << "Geben sie einen User ein:" <<endl<<"<"<< User << ">: ";
-    cin >> User;
-    cout << endl;
-    break;
-    
-    
-    case 2:
-        cout<<endl<< "Welche operaation willst du durchführen?" << endl << "1. Addieren" << endl << "2. Subtrahieren" << endl << "3. Multiplizieren" << endl << "4. Dividieren" << endl << "5. Potenzieren" << endl << "<"<< User << ">: ";
-        cin >> Auswahl1;
-           switch(Auswahl1){
-              default: 
-              cout <<"Error!" << endl;
-              return 1;
-        
-              case 1: 
-              Ergebnis_I = Zahl1 + Zahl2;
-              cout <<endl<< "Das ergebnis lautet: " <<Ergebnis_I<<endl;
-              break;
-        
-              case 2:
-             Ergebnis_I = Zahl1 - Zahl2;
-             cout <<endl<< "Das ergebnis lautet: " <<Ergebnis_I<<endl;
-             break;
-        
-             case 3:
-             Ergebnis_I = Zahl1 * Zahl2;
-             cout <<endl<< "Das ergebnis lautet: " <<Ergebnis_I<<endl;
-             break;
-        
-              case 4:
-               cout << "1. Möglichkeit: "<< Zahl1<< "/"<< Zahl2 << endl << "2. Möglichkeit: "<< Zahl2<< "/"<< Zahl1 << endl;
-                cin >> Auswahl4;
-                if(Auswahl4 == 1 ){
-                    Ergebnis_F = (float)Zahl1/(float)Zahl2;
-                }else{
-                    Ergebnis_F = (float)Zahl2/(float)Zahl1;
-                }
-             cout <<endl<< "Das ergebnis lautet: " <<Ergebnis_F<<endl << endl;
-             break;
-        
-             case 5:
-              cout << "Welche Zahl wollen sie potenzieren?"<<endl <<endl<< "1. erste Zahl"<<endl<< "2. zweite Zahl"<<endl <<"<" << User << ">: ";
-              cin >> Auswahl2;
-              if(Auswahl2 == 1){
-                 Ergebnis_I = Zahl1 * Zahl1;
-                   cout <<"Das Ergebnis lautet: "<< Ergebnis_I << endl<<endl<<endl<<endl;
-               }else{
-                 Ergebnis_I = Zahl2 * Zahl2;
-                    cout <<"Das Ergebnis lautet: "<< Ergebnis_I << endl<< endl <<endl<<endl;
-              }
-             break;
-    }break;
-    
-    case 3:
-        cout<< "Bestimme die erste Zahl!" << endl << "<" << User << ">: ";
-        cin >> Zahl1;
-        cout<< endl;
-        cout<<"Bestimme die zweite Zahl!" << endl << "<" << User << ">: ";
-        cin >> Zahl2;
-        cout <<endl<< endl << endl;
-        break;
-        
-        case 4:
-        cout <<"Die erste Zahl: "<< Zahl1 << endl;
-        cout <<"Die zweite Zahl: "<< Zahl2 << endl<< endl << endl;
-        break;
-        
-    case 5:
-    return 0;
-    
-}   
-}
-    return 0;
+		switch(Auswahl3) {
+		default:
+			cout <<"Error!" <<endl;
+			return 1;
+
+
+		case 1:
+			cout << "Geben sie einen User ein:" <<endl<<"<"<< User << ">: ";
+			cin >> User;
+			cout << endl;
+			break;
+
+
+		case 2:
+			cout<<endl<< "Welche operaation willst du durchführen?" << endl << "1. Addieren" << endl << "2. Subtrahieren" << endl << "3. Multiplizieren" << endl << "4. Dividieren" << endl << "5. Potenzieren"<<endl<<"6. Wurzel ziehen" << endl << "<"<< User << ">: ";
+			cin >> Auswahl1;
+			switch(Auswahl1) {
+			default:
+				cout <<"Error!" << endl;
+				
+
+			case 1:
+				Ergebnis_I = Zahl1 + Zahl2;
+				cout <<endl<< "Das ergebnis lautet: " <<Ergebnis_I<<endl;
+				break;
+
+			case 2:
+				Ergebnis_I = Zahl1 - Zahl2;
+				cout <<endl<< "Das ergebnis lautet: " <<Ergebnis_I<<endl;
+				break;
+
+			case 3:
+				Ergebnis_I = Zahl1 * Zahl2;
+				cout <<endl<< "Das ergebnis lautet: " <<Ergebnis_I<<endl;
+				break;
+
+			case 4:
+				cout << "1. MC6glichkeit: "<< Zahl1<< "/"<< Zahl2 << endl << "2. MC6glichkeit: "<< Zahl2<< "/"<< Zahl1 << endl;
+				cin >> Auswahl4;
+				if(Auswahl4 == 1 ) {
+					Ergebnis_F = (float)Zahl1/(float)Zahl2;
+				} else {
+					Ergebnis_F = (float)Zahl2/(float)Zahl1;
+				}
+				cout <<endl<< "Das ergebnis lautet: " <<Ergebnis_F<<endl << endl;
+				break;
+
+			case 5:
+				cout << "Welche Zahl wollen Sie potenzieren?"<<endl <<endl<< "1. erste Zahl"<<endl<< "2. zweite Zahl"<<endl <<"<" << User << ">: ";
+				cin >> Auswahl2;
+				if(Auswahl2 == 1) {
+					Ergebnis_I = Zahl1 * Zahl1;
+					cout <<"Das Ergebnis lautet: "<< Ergebnis_I << endl<<endl<<endl<<endl;
+				} else {
+					Ergebnis_I = Zahl2 * Zahl2;
+					cout <<"Das Ergebnis lautet: "<< Ergebnis_I << endl<< endl <<endl<<endl;
+				}
+				break;
+				
+			case 6:
+			    cout << "Von welcher Zahl wollen Sie die wurzel ziehen?" <<endl <<endl << "1. erste Zahl"<<endl<< "2. zweite Zahl"<<endl <<"<" << User << ">: ";
+				cin>> Auswahl5;
+				if(Auswahl5 == 1){
+				    Ergebnis_F = sqrt((float)Zahl1);
+				     cout << "Das Ergebnis ist: "<< Ergebnis_F <<endl;
+				}else{
+				    Ergebnis_F = sqrt((float)Zahl2);
+				    cout << "Das Ergebnis ist: "<< Ergebnis_F <<endl;
+				}
+			}
+			break;
+
+		case 3:
+			cout<< "Bestimme die erste Zahl!" << endl << "<" << User << ">: ";
+			cin >> Zahl1;
+			cout<< endl;
+			cout<<"Bestimme die zweite Zahl!" << endl << "<" << User << ">: ";
+			cin >> Zahl2;
+			cout <<endl<< endl << endl;
+			break;
+
+		case 4:
+			cout <<"Die erste Zahl: "<< Zahl1 << endl;
+			cout <<"Die zweite Zahl: "<< Zahl2 << endl<< endl << endl;
+			break;
+			
+		case 5:
+		    cout << "Welche Winkelfunktion wollen sie verwenden?(radiant)"<<endl <<"1. cos()"<<endl<<"2. sin()"<<endl<<"3. tan()"<<endl<<"4. arc cos()"<<endl<<"5. arc sin()"<<endl<<"6. arc tan()"<<endl<<"<"<<User<<">: ";
+		   cin >> Auswahl6;
+		   switch(Auswahl6){
+		       default: 
+		       cout << "Error!"<<endl<<endl;
+		       return 0;
+		       
+		       case 1: 
+		       cout << "Geben sie einen Wert ein! "<<endl<<"<"<<User<<">: ";
+		       cin >>Zahl3;
+		       Ergebnis_F = cos((float)Zahl3);
+		       cout << Ergebnis_F;
+		       break;
+		       
+		       case 2: 
+		       cout << "Geben sie einen Wert ein! "<<endl<<"<"<<User<<">: ";
+		       cin >>Zahl3;
+		       Ergebnis_F = sin((float)Zahl3);
+		       cout << Ergebnis_F;
+		       break;
+		       
+		        case 3: 
+		       cout << "Geben sie einen Wert ein! "<<endl<<"<"<<User<<">: ";
+		       cin >>Zahl3;
+		       Ergebnis_F = tan((float)Zahl3);
+		       cout << Ergebnis_F;
+		       break;
+		       
+		        case 4: 
+		       cout << "Geben sie einen Wert ein! "<<endl<<"<"<<User<<">: ";
+		       cin >>Zahl3;
+		       Ergebnis_F = acos((float)Zahl3);
+		       cout << Ergebnis_F;
+		       break;
+		       
+		        case 5: 
+		       cout << "Geben sie einen Wert ein! "<<endl<<"<"<<User<<">: ";
+		       cin >>Zahl3;
+		       Ergebnis_F = asin((float)Zahl3);
+		       cout << Ergebnis_F;
+		       break;
+		       
+		        case 6: 
+		       cout << "Geben sie einen Wert ein! "<<endl<<"<"<<User<<">: ";
+		       cin >>Zahl3;
+		       Ergebnis_F = atan((float)Zahl3);
+		       cout << Ergebnis_F;
+		       break;
+		   }
+
+		case 6:
+			return 0;
+
+		}
+	}
+	return 0;
 }
