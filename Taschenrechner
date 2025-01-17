@@ -3,11 +3,12 @@
 using namespace std;
 
 int main() {
-    int Auswahl1, Auswahl2, Auswahl3, Auswahl4, Auswahl5, Auswahl6, Auswahl7, Auswahl8, Zahl1, Zahl2, Zahl3, Ergebnis_I, Q_a, R_a, R_b, R_c, R_h, D_a, D_b, D_c, K_r, K_h;
+    int Auswahl1, Auswahl2, Auswahl3, Auswahl4, Auswahl5, Auswahl6, Auswahl7, Auswahl8, Auswahl9, Zahl1, Zahl2, Zahl3, Ergebnis_I, Q_a, R_a, R_b, R_c, R_h, D_a, D_b, D_c, K_r, K_h, L_k, L_d, L_x, L_y, Q_k, Q_b, Q_c, Q_x;
+    int S_A, S_B, S_C, S_D, S_X, C_A, C_B, C_C, C_D, C_X, T_A, T_B, T_C, T_D, T_X;
     string User = "Unknown";
     float Ergebnis_F;
 
-    while(Auswahl3 != 8) {
+    while(Auswahl3 != 9) {
         cout << "Taschenrechner von <" << User << ">" << endl << endl 
              << "Was wollen Sie tun? " << endl
              << "1. Usernamen bestimmen" << endl
@@ -17,7 +18,8 @@ int main() {
              << "5. Trigonometrie" << endl
              << "6. Flächeninhalt" << endl
              << "7. Volumen" <<endl
-             << "8. Beenden" << endl 
+             << "8. Funnktionen" << endl
+             << "9. Beenden" << endl 
              << "<" << User << ">: ";
         cin >> Auswahl3;
         cout << endl << endl;
@@ -46,7 +48,7 @@ int main() {
                 switch(Auswahl1) {
                     default:
                         cout << "Error!" << endl;
-                        break;
+                        return 1;
 
                     case 1:
                         Ergebnis_I = Zahl1 + Zahl2;
@@ -134,7 +136,7 @@ int main() {
                 switch(Auswahl6) {
                     default: 
                         cout << "Error!" << endl << endl;
-                        return 0;
+                        return 1;
 
                     case 1: 
                         cout << "Geben Sie einen Wert ein! " << endl << "<" << User << ">: ";
@@ -191,7 +193,7 @@ int main() {
                 switch(Auswahl7) {
                     default: 
                         cout << "Error!" << endl;
-                        break;
+                        return 1;
 
                     case 1:  // Quadrat
                         cout << "Geben Sie die Werte für die a Seite an!" << endl
@@ -243,7 +245,7 @@ int main() {
                 switch(Auswahl8){
                     default:
                     cout << "Error!";
-                    return 0;
+                    return 1;
                     
                     case 1: // Würfel
                     cout << "Geben Sie die Seite a an!" << endl << "<" << User << ">: ";
@@ -278,6 +280,102 @@ int main() {
                 break;
 
             case 8:
+            cout << "Welche Funktion wollen Sie berechnen? " << endl << "1. Lineare Funktion" << endl << "2. Quadratische Funktion "<<endl<<"3. Sinus"<<endl <<"4. Cosinus"<<endl << "5. Tangens"<<endl<< "<" << User << ">: ";
+            cin >> Auswahl9;
+            switch(Auswahl9){
+                default:
+                cout << "Error!";
+                return 1;
+                
+                case 1:
+                cout << "Geben Sie die Steigung an! "<< endl << "<" << User << ">: ";
+                cin >> L_k;
+                cout << endl;
+                cout << "Geben Sie Verschiebung an der Y-Achse an! " << endl << "<" << User << ">: ";
+                cin >> L_d;
+                cout << endl;
+                cout << "Geben Sie einen Wert für X ein! " << endl <<  "<" << User << ">: ";
+                cin >> L_x;
+                cout << endl;
+                cout << "f(x) = " << L_k * L_x + L_d << endl << endl;
+                break;
+                
+                case 2:
+                cout << "Geben Sie den Wert für a an! " << endl <<  "<" << User << ">: ";
+                cin >> Q_k;
+                cout << endl;
+                cout << "Geben Sie den Wert für b an! " << endl <<  "<" << User << ">: ";
+                cin >> Q_b;
+                cout << endl;
+                cout << "Geben Sie den Wert für c an! " << endl <<  "<" << User << ">: ";
+                cin >> Q_c;
+                cout << endl;
+                cout << "Geben Sie den Wert für x an! " << endl <<  "<" << User << ">: ";
+                cin >> Q_x;
+                cout << endl;
+                cout << "f(x) = " << Q_k * pow(Q_x, 2) + Q_b * Q_x + Q_c << endl << endl;
+                break;
+                
+                case 3:
+                cout << "Geben Sie den Wert für A an! " << endl <<  "<" << User << ">: ";
+                cin >> S_A;
+                cout << endl;
+                cout << "Geben Sie den Wert für B an! " << endl <<  "<" << User << ">: ";
+                cin >> S_B;
+                cout << endl;
+                cout << "Geben Sie den Wert für C an! " << endl <<  "<" << User << ">: ";
+                cin >> S_C;
+                cout << endl;
+                cout << "Geben Sie den Wert für D an! " << endl <<  "<" << User << ">: ";
+                cin >> S_D;
+                cout << endl;
+                cout << "Geben Sie den Wert für X an! " << endl <<  "<" << User << ">: ";
+                cin >> S_X;
+                cout << endl;
+                cout << "f(x) = " << S_A * sin(S_B*S_X + S_C * M_PI) + S_D << endl << endl;
+                break;
+                
+                case 4:
+                cout << "Geben Sie den Wert für A an! " << endl <<  "<" << User << ">: ";
+                cin >> C_A;
+                cout << endl;
+                cout << "Geben Sie den Wert für B an! " << endl <<  "<" << User << ">: ";
+                cin >> C_B;
+                cout << endl;
+                cout << "Geben Sie den Wert für C an! " << endl <<  "<" << User << ">: ";
+                cin >> C_C;
+                cout << endl;
+                cout << "Geben Sie den Wert für D an! " << endl <<  "<" << User << ">: ";
+                cin >> C_D;
+                cout << endl;
+                cout << "Geben Sie den Wert für X an! " << endl <<  "<" << User << ">: ";
+                cin >> C_X;
+                cout << endl;
+                cout << "f(x) = " << C_A * cos(C_B*C_X + C_C * M_PI) + C_D << endl << endl;
+                break;
+                
+                case 5:
+                cout << "Geben Sie den Wert für A an! " << endl <<  "<" << User << ">: ";
+                cin >> T_A;
+                cout << endl;
+                cout << "Geben Sie den Wert für B an! " << endl <<  "<" << User << ">: ";
+                cin >> T_B;
+                cout << endl;
+                cout << "Geben Sie den Wert für C an! " << endl <<  "<" << User << ">: ";
+                cin >> T_C;
+                cout << endl;
+                cout << "Geben Sie den Wert für D an! " << endl <<  "<" << User << ">: ";
+                cin >> T_D;
+                cout << endl;
+                cout << "Geben Sie den Wert für X an! " << endl <<  "<" << User << ">: ";
+                cin >> T_X;
+                cout << endl;
+                cout << "f(x) = " << T_A * tan(T_B*T_X + T_C * M_PI) + T_D << endl << endl;
+                break;
+            }
+            break;
+            
+            case 9:
                 return 0;
                 break;
         }
