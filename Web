@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BEN DIE GEILE SAU</title>
+    <style>
+        .container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            max-height: 1060px;
+        }
+        #meinBild {
+            width: 100%;
+            height: auto;
+            border: none;
+            padding: 0;
+            margin: 0;
+        }
+        #meinButton {
+            position: absolute;
+            top: 100%; /* Positioniere den Button vertikal in der Mitte des Containers */
+            left: 50%; /* Positioniere den Button horizontal in der Mitte des Containers */
+            transform: translate(-50%, -50%); /* Korrektur der Position, damit der Button wirklich in der Mitte ist */
+            height: 50px;
+            width: 100px;
+            z-index: 10; /* Stellt sicher, dass der Button über dem Bild liegt */
+        }
+        .link-container {
+            display: none; /* Verstecke die Links standardmäßig */
+            position: absolute;
+            top: 70%; /* Position der Links */
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
+        }
+        .link-container a {
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img id="meinBild" src="bilder/wp4020201-dedsec-wallpapers.jpg" alt="Beispielbild">
+        <button id="meinButton" type="button" onclick="bildAendern()">Click Me!</button>
+        <div class="link-container" id="linkContainer">
+            <a style="color: black;"    href="https://www.youtube.com/watch?v=HGTJBPNC-Gw&t=3129s">Bro code</a>
+            <a style="color: black;"    href="https://www.onlinegdb.com/">Online gdb</a>
+            <a style="color: black;"    href="https://chatgpt.com/">chatgpt</a>
+            <a style="color: black;"    href="#">Troll</a>
+        </div>
+    </div>
+
+    <script>
+        let clicks = 0;
+
+        function bildAendern() {
+            clicks++;
+
+            // Ändere das Bild beim ersten Klick
+            const bild = document.getElementById('meinBild');
+            const button = document.getElementById('meinButton');
+
+            // Beim ersten Klick: Bild ändern und Button verschieben
+            if (clicks === 1) {
+                bild.src = 'bilder/wp4020253-dedsec-wallpapers.png'; // Ersetze den Pfad durch dein gewünschtes Bild
+                bild.style.height = '100vh';
+                button.style.top = '65%'; // Button verschieben
+            }
+
+            // Beim zweiten Klick: Bild und Button ausblenden, Links anzeigen
+            if (clicks === 2) {
+                bild.style.display = 'none'; // Bild ausblenden
+                button.style.display = 'none'; // Button ausblenden
+                const linkContainer = document.getElementById('linkContainer');
+                linkContainer.style.display = 'flex'; // Links anzeigen
+            }
+        }
+    </script>
+</body>
+</html>
