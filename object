@@ -1,0 +1,32 @@
+
+#include <iostream>
+using namespace std;
+
+
+int main()
+{
+   
+   class Auto{
+       public:
+       
+       string Marke;
+       int Baujahr;
+       int Kilometer_stand;
+       int Max_Kmh;
+       int Tank;
+       
+       Auto(string m, int b, int k, int max, int tank) : Marke(m), Baujahr(b), Kilometer_stand(k), Max_Kmh(max), Tank(tank) {}
+       
+       void Beschreibung(){
+         cout << "Marke: " << Marke << endl << "Baujahr: " << Baujahr << endl << "Kilometer stand: " << Kilometer_stand<< "km" << endl << "Max kmh: "<< Max_Kmh <<"kmh"<< endl << "Tank: " << Tank <<"liter"<< endl;
+       }
+           
+       };
+       
+       Auto meineAuto("BMW", 1990, 8340, 193, 40);
+       
+       meineAuto.Beschreibung();
+   
+   
+    return 0;
+}
