@@ -3,23 +3,110 @@
 using namespace std;
 
 int main() {
-    int Auswahl1, Auswahl2, Auswahl3, Auswahl4, Auswahl5, Auswahl6, Auswahl7, Auswahl8, Auswahl9, Zahl1, Zahl2, Zahl3, Ergebnis_I, Q_a, R_a, R_b, R_c, R_h, D_a, D_b, D_c, K_r, K_h, L_k, L_d, L_x, L_y, Q_k, Q_b, Q_c, Q_x;
+    int Auswahl1, Auswahl2, Auswahl3, Auswahl4, Auswahl5, Auswahl6, Auswahl7, Auswahl8, Auswahl9, Auswahl10, Auswahl11, Auswahl12, Auswahl13, Zahl1, Zahl2, Zahl3, Ergebnis_I, Q_a, R_a, R_b, R_c, R_h, D_a, D_b, D_c, K_r, K_h, L_k, L_d, L_x, L_y, Q_k, Q_b, Q_c, Q_x;
     int S_A, S_B, S_C, S_D, S_X, C_A, C_B, C_C, C_D, C_X, T_A, T_B, T_C, T_D, T_X;
-    string User = "Unknown";
+    string User = "Unknown";string never = "Ben";string word = never;string pass = word;string Eingabe;
     float Ergebnis_F;
+    
+    class Film_Daten {
+public:
+    int Jahr;
+    int Dauer;
+    string Titel;
+    string Genre;
 
-    while(Auswahl3 != 9) {
+    // Default constructor
+    Film_Daten() : Jahr(0), Dauer(0), Titel("Unknown"), Genre("Unknown") {}
+
+    // Parametrized constructor
+    Film_Daten(int J, int D, string T, string G) : Jahr(J), Dauer(D), Titel(T), Genre(G) {}
+
+    void Film_bestimmen() {
+        cout << endl << "Geben Sie den Titel ein! " << endl;
+        cin >> Titel;
+        cout << endl << "Geben Sie das Erscheinungsjahr an!  " << endl;
+        cin >> Jahr;
+        cout << endl << "Geben Sie die Dauer an! " << endl;
+        cin >> Dauer;
+        cout << endl << "Geben Sie das Genre an! " << endl;
+        cin >> Genre;
+    }
+
+    void Film_anschauen() {
+        cout << endl << "Titel: " << Titel << endl << "Jahr: " << Jahr << endl << "Dauer: " << Dauer << " min" << endl << "Genre: " << Genre << endl << endl;
+    }
+};
+
+    
+    class Personen_Daten{
+        public:
+        
+        string Name;
+        int Alter;
+        int Groesse;
+        double Gewicht;
+        
+        Personen_Daten() : Name("Unknown"), Alter(0), Groesse(0), Gewicht(0.0) {}
+
+        
+        Personen_Daten(string N, int A, int Gr, double Gw) : Name(N), Alter(A), Groesse(Gr), Gewicht(Gw)    {}
+        
+        void Person_bestimmen(){
+            cout <<endl<< "Geben Sie den Namen ein! " << endl;
+            cin >> Name;
+            cout <<endl<< "Geben Sie das Alter an!  " << endl;
+            cin >> Alter;
+            cout << endl <<"Geben Sie die Groesse an! " << endl;
+            cin >> Groesse;
+            cout << endl << "Geben Sie das Gewicht an! " << endl;
+            cin >> Gewicht;
+        }
+        
+        void Person_anschauen(){
+            cout <<endl << "Name: "<< Name << endl << "Alter: " << Alter << endl << "Groesse: " << Groesse << "cm" << endl << "Gewicht: " << Gewicht << endl << endl;
+        }
+        
+        
+    };
+    
+    Film_Daten Film;
+    Personen_Daten Person;
+    
+    
+    
+    
+    
+    
+    
+    while(Auswahl10 != 5){
+        
+        cout << "System von <" << User << ">" << endl << endl << "Was wollen Sie tun? " << endl << "1. Usernamen bestimmen"<< endl << "2. Taschenrechner" << endl << "3. Minesweeper" << endl << "4. Auf Daten zugreifen" << endl << "5. Beenden" << endl  << "<" << User << ">: ";
+        cin >> Auswahl10;
+        cout << endl << endl;
+        
+    switch(Auswahl10){
+        default:
+            cout << "Error!" << endl;
+            return 1;
+            
+            case 1:
+                cout << "Geben Sie einen Usernamen ein:" << endl << "<" << User << ">: ";
+                cin >> User;
+                cout << endl;
+                
+    case 2:            
+
+    while(Auswahl3 != 8) {
         cout << "Taschenrechner von <" << User << ">" << endl << endl 
              << "Was wollen Sie tun? " << endl
-             << "1. Usernamen bestimmen" << endl
-             << "2. Rechenoperationen" << endl 
-             << "3. Zahlen bestimmen" << endl
-             << "4. Zahlen aufrufen" << endl
-             << "5. Trigonometrie" << endl
-             << "6. Flächeninhalt" << endl
-             << "7. Volumen" <<endl
-             << "8. Funnktionen" << endl
-             << "9. Beenden" << endl 
+             << "1. Rechenoperationen" << endl 
+             << "2. Zahlen bestimmen" << endl
+             << "3. Zahlen aufrufen" << endl
+             << "4. Trigonometrie" << endl
+             << "5. Flächeninhalt" << endl
+             << "6. Volumen" <<endl
+             << "7. Funnktionen" << endl
+             << "8. Beenden" << endl 
              << "<" << User << ">: ";
         cin >> Auswahl3;
         cout << endl << endl;
@@ -29,13 +116,8 @@ int main() {
                 cout << "Error!" << endl;
                 return 1;
 
-            case 1:
-                cout << "Geben Sie einen Usernamen ein:" << endl << "<" << User << ">: ";
-                cin >> User;
-                cout << endl;
-                break;
 
-            case 2:
+            case 1:
                 cout << endl << "Welche Operation wollen Sie durchführen?" << endl 
                      << "1. Addieren" << endl 
                      << "2. Subtrahieren" << endl 
@@ -109,7 +191,7 @@ int main() {
                 }
                 break;
 
-            case 3:
+            case 2:
                 cout << "Bestimme die erste Zahl!" << endl << "<" << User << ">: ";
                 cin >> Zahl1;
                 cout << endl;
@@ -118,12 +200,12 @@ int main() {
                 cout << endl << endl << endl;
                 break;
 
-            case 4:
+            case 3:
                 cout << "Die erste Zahl: " << Zahl1 << endl;
                 cout << "Die zweite Zahl: " << Zahl2 << endl << endl << endl;
                 break;
 
-            case 5:
+            case 4:
                 cout << "Welche Winkelfunktion wollen Sie verwenden? (Radiant)" << endl 
                      << "1. cos()" << endl 
                      << "2. sin()" << endl 
@@ -182,7 +264,7 @@ int main() {
                 }
                 break;
 
-            case 6:  // Flächeninhalt
+            case 5:  // Flächeninhalt
                 cout << "Welchen Flächeninhalt wollen Sie berechnen?" << endl
                      << "1. Quadrat" << endl
                      << "2. Rechteck" << endl
@@ -239,7 +321,7 @@ int main() {
                 break;
                 
                 
-                case 7:
+                case 6:
                 cout << "Welches Volumen wollen Sie berechnen? "<<endl << "1. Würfel" <<endl<< "2. Quader"<<endl<<"3. Kugel"<<endl<<"4. Zylinder" <<endl << "<" << User << ">: ";
                 cin >> Auswahl8;
                 switch(Auswahl8){
@@ -279,7 +361,7 @@ int main() {
                 }
                 break;
 
-            case 8:
+            case 7:
             cout << "Welche Funktion wollen Sie berechnen? " << endl << "1. Lineare Funktion" << endl << "2. Quadratische Funktion "<<endl<<"3. Sinus"<<endl <<"4. Cosinus"<<endl << "5. Tangens"<<endl<< "<" << User << ">: ";
             cin >> Auswahl9;
             switch(Auswahl9){
@@ -375,10 +457,82 @@ int main() {
             }
             break;
             
-            case 9:
+            case 8:
                 return 0;
                 break;
         }
+        
+    }
+    break;
+    
+    case 3:
+    //In Arbeit
+    break;
+    
+    case 4:
+    cout << "Systemzugriff von <" << User << ">" << endl << endl << "Geben Sie das Passwort ein! " << endl << "<" << User << ">: ";
+    cin >> Eingabe;
+    cout << endl;
+    if(Eingabe == pass){
+        cout << "Worauf wollen Sie zugreifen? " << endl << endl << "1. Filmdaten" <<endl<< "2. Personendaten"<<endl<<"3. Beenden" << endl << "<" << User << ">: ";
+        cin >> Auswahl11;
+        switch(Auswahl11 != 3){
+            default: 
+            cout << "Error";
+            return 1;
+            
+            case 1:
+            cout << "Was wollen Sie machen? " << endl << endl << "1. Daten ansehen" << endl << "2.Daten bestimmen" << endl << "<" << User << ">: ";
+        
+            cin >> Auswahl12;
+            switch(Auswahl12){
+                default:
+                cout << "Error";
+                return 1;
+                
+                case 1:
+                Film.Film_anschauen();
+                break;
+                
+                case 2:
+                Film.Film_bestimmen();
+                
+                break;
+            }
+            break;
+            
+            case 2:
+            cout << "Was wollen Sie machen? " << endl << endl << "1. Daten ansehen" << endl << "2. Daten bestimmen" << endl << "<" << User << ">: ";
+            cin >> Auswahl13;
+            switch(Auswahl13){
+                default:
+                cout << "Error";
+                return 1;
+                
+                case 1:
+                Person.Person_anschauen();
+                break;
+                
+                case 2:
+                Person.Person_bestimmen();
+                break;
+        }
+        break;
+        
+        case 3:
+        return 0;
+        
+        }   
+    }else
+    {cout <<endl<< "Wrong Password! " << endl;
+        return 1;}
+    break;
+    
+    case 5: 
+    return 0;
+    
+        
+    }
     }
     return 0;
 }
