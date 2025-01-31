@@ -1,12 +1,149 @@
 #include <iostream>
 #include <cmath>
+#include <cstdlib>
+#include <ctime>
+#include <vector>
+
+
 using namespace std;
+
+
+
 
 int main() {
     int Auswahl1, Auswahl2, Auswahl3, Auswahl4, Auswahl5, Auswahl6, Auswahl7, Auswahl8, Auswahl9, Auswahl10, Auswahl11, Auswahl12, Auswahl13, Zahl1, Zahl2, Zahl3, Ergebnis_I, Q_a, R_a, R_b, R_c, R_h, D_a, D_b, D_c, K_r, K_h, L_k, L_d, L_x, L_y, Q_k, Q_b, Q_c, Q_x;
     int S_A, S_B, S_C, S_D, S_X, C_A, C_B, C_C, C_D, C_X, T_A, T_B, T_C, T_D, T_X;
     string User = "Unknown";string never = "Ben";string word = never;string pass = word;string Eingabe;
     float Ergebnis_F;
+    
+    
+    class Minesweeper {
+private:
+    vector<vector<char>> board;  // Spielfeld
+    vector<vector<char>> displayBoard;  // Anzeige des Spielfelds
+    int remainingCells;  // Verbleibende Felder ohne Minen
+    int revealedCells;  // Aufgedeckte Felder
+    bool gameOver;
+
+    // Zufällige Platzierung der Minen
+    void placeMines() {
+        srand(time(0));
+        int minesPlaced = 0;
+        while (minesPlaced < 10) {
+            int x = rand() % 9;
+            int y = rand() % 9;
+            if (board[x][y] != 'M') {
+                board[x][y] = 'M';
+                minesPlaced++;
+            }
+        }
+    }
+
+   void calculateAdjacentMines() {
+    for (int x = 0; x < 9; x++) {
+        for (int y = 0; y < 9; y++) {  
+            if (board[x][y] == 'M') continue;  
+            int mineCount = 0;
+            for (int dx = -1; dx <= 1; dx++) {
+                for (int dy = -1; dy <= 1; dy++) {
+                    int nx = x + dx;
+                    int ny = y + dy;
+                    if (nx >= 0 && nx < 9 && ny >= 0 && ny < 9 && board[nx][ny] == 'M') {
+                        mineCount++;
+                    }
+                }
+            }
+            board[x][y] = '0' + mineCount; 
+        }
+    }
+}
+
+
+    // Anzeige des Spielfelds
+    void display() {
+        cout << "   ";
+        for (int x = 0; x < 9; x++) {
+            cout << x + 1 << " ";
+        }
+        cout << endl;
+        for (int x = 0; x < 9; x++) {
+            cout << x + 1 << " |";
+            for (int y = 0; y < 9; y++) {
+                if (displayBoard[x][y] == '?') {
+                    cout << " ?";
+                } else {
+                    cout << " " << displayBoard[x][y];
+                }
+            }
+            cout << endl;
+        }
+    }
+
+    // Aufdecken eines Feldes
+    void reveal(int x, int y) {
+        if (displayBoard[x][y] != '?') return;
+        revealedCells++;
+        displayBoard[x][y] = board[x][y];
+        if (board[x][y] == 'M') {
+            gameOver = true;
+        } else if (board[x][y] == '0') {
+            // Rekursive Aufdeckung benachbarter Felder
+            for (int dx = -1; dx <= 1; dx++) {
+                for (int dy = -1; dy <= 1; dy++) {
+                    int nx = x + dx;
+                    int ny = y + dy;
+                    if (nx >= 0 && nx < 9 && ny >= 0 && ny < 9 && displayBoard[nx][ny] == '?') {
+                        reveal(nx, ny);
+                    }
+                }
+            }
+        }
+    }
+
+public:
+    Minesweeper() : remainingCells(9 * 9 - 10), revealedCells(0), gameOver(false) {
+        board.resize(9, vector<char>(9, ' '));
+        displayBoard.resize(9, vector<char>(9, '?'));
+        placeMines();
+        calculateAdjacentMines();
+    }
+
+    bool isGameOver() { return gameOver; }
+
+    bool isWon() { return revealedCells == remainingCells; }
+
+    void play() {
+        int x, y;
+        while (!gameOver) {
+            display();
+            cout << "Geben Sie die Koordinaten ein (Zeile, Spalte) [1-" << 9 << "]: ";
+            cin >> x >> y;
+            cout << endl << endl << endl << endl;
+            x--; y--; // Um von 1-basiert auf 0-basiert zu wechseln
+
+            if (x < 0 || x >= 9 || y < 0 || y >= 9) {
+                cout << "Ungültige Koordinaten. Versuchen Sie es erneut." << endl;
+                continue;
+            }
+
+            reveal(x, y);
+
+            if (isWon()) {
+                display();
+                cout << "Herzlichen Glückwunsch! Sie haben gewonnen!" << endl;
+                break;
+            }
+        }
+        if (gameOver) {
+            display();
+            cout << "Game Over! Eine Mine explodierte." << endl;
+        }
+    }
+};
+    
+    
+    
+    
     
     class Film_Daten {
 public:
@@ -71,6 +208,7 @@ public:
     
     Film_Daten Film;
     Personen_Daten Person;
+    Minesweeper game;
     
     
     
@@ -466,7 +604,7 @@ public:
     break;
     
     case 3:
-    //In Arbeit
+    game.play();
     break;
     
     case 4:
